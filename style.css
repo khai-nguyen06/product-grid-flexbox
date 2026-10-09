@@ -1,0 +1,58 @@
+/* Universal Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333333;
+}
+
+/* ĐỊNH DẠNG KHỐI CHỨA LƯỚI SẢN PHẨM */
+.product-grid {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép các sản phẩm tự động xuống dòng khi thiếu không gian */
+    gap: 20px;       /* Khoảng cách giữa các thẻ sản phẩm */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ĐỊNH DẠNG THẺ SẢN PHẨM CO GIÃN LINH HOẠT */
+.product-card {
+    /* 
+       flex: 1 1 calc(25% - 20px):
+       - flex-grow: 1 (Cho phép co giãn chiếm khoảng trống thừa)
+       - flex-shrink: 1 (Cho phép thu nhỏ khi thiếu không gian)
+       - flex-basis: calc(25% - 20px) (Độ rộng cơ sở 4 cột có trừ khoảng cách gap)
+    */
+    flex: 1 1 calc(25% - 20px);
+    min-width: 220px; /* Đảm bảo thẻ không bị co quá hẹp, tự xuống dòng khi chạm mốc này */
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card h4 {
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.product-card .price {
+    color: #e74c3c;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* HIỆU ỨNG HOVER KHI RÊ CHUỘT VÀO THẺ */
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
